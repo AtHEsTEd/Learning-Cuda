@@ -86,7 +86,7 @@ int main_vector_add()
 	const int NUM_THREADS = 256;
 
 	// Grid size
-	const int NUM_BLOCKS = (int)ceil(n / NUM_THREADS);
+	const int NUM_BLOCKS = (n + NUM_THREADS - 1) / NUM_THREADS;
 
 	// Launch kernel
 	vectorAdd <<<NUM_BLOCKS, NUM_THREADS>>> (device_a, device_b, device_c, n);
